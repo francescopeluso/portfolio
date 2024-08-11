@@ -195,10 +195,6 @@ function HomePage() {
                   I also have a <a href='https://www.reddit.com/u/thatsfrankie'>Reddit profile</a> (but I do not post that much, and it is not all about tech).
                 </p>
               </div>
-              <div style={{ marginTop: 64 }}>
-                <h3>Other socials and hobbies.</h3>
-                <iframe src="https://open.spotify.com/embed/playlist/6TK2tYcWf5BHd3CYK9VRwU?utm_source=generator&theme=0" width="520" height="152" frameBorder="0" title="Spotify Playlist" allowFullScreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-              </div>
             </div>
           </div>          
         </div>
