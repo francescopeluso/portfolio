@@ -1,9 +1,25 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
+
+import ReactGA from 'react-ga';
 
 import HomePage from './HomePage';
 import NotFoundPage from './NotFoundPage';
 import MobileRedirect from './MobileRedirect';
 
+// Google Analytics
+ReactGA.initialize('G-NK0F2022TD');
+
+// PageTracker component to track page views
+const PageTracker = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    ReactGA.send({ hitType: "pageview", page: location.pathname + location.search });
+  }, [location]);
+
+  return null;
+};
 
 const App = () => {
 
@@ -14,6 +30,7 @@ const App = () => {
 
   return (
     <Router>
+      <PageTracker />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/mobile" element={<MobileRedirect />} />
