@@ -1,0 +1,72 @@
+/*
+  Francesco Peluso Portfolio Website - 2024
+  Created by Francesco Peluso
+
+  Light Theme:
+    - Coolors palette:  https://coolors.co/palette/006d77-83c5be-edf6f9
+    - Colors HEX:       #006D77, #83C5BE, #EDF6F9
+    - Text color:       #1A1A1A
+
+  Dark Theme:
+    - maybe coming soon :)
+*/
+
+
+.navbar {
+  position: fixed;
+  background-color: #EDF6F9;
+
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 96vh;
+  height: 64px;
+
+  padding: 0 12px;
+  margin-top: 12px;
+
+  transform-origin: left top;
+  transform: rotate(-90deg) translateX(-100%);
+  -webkit-transform-origin: left top;
+  -webkit-transform:rotate(-90deg) translateX(-100%);
+}
+
+.navbar-logo {
+  font-size: 32px;
+  font-weight: 800;
+  color: #83C5BE;
+  transform: rotate(90deg) !important;
+}
+
+.navbar-links {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.navbar-link, .navbar-social-link {
+  font-weight: 800;
+  margin: auto 12px;
+}
+
+.navbar-social-link {
+  transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+
+  width: 64px;
+}
+
+.navbar-link, .navbar-link:visited {
+  background-size: 100% 200%;
+  background-image: linear-gradient(to bottom, #EDF6F9 50%, #83C5BE 50%);
+
+  text-decoration: none;
+  padding: 4px 8px;
+  transition: ease-in-out 0.1s;
+}
+
+.navbar-link:hover, .active-link {
+  color: #EDF6F9 !important;
+  background-position: 0 -100%;
+}

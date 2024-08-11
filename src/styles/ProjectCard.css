@@ -1,0 +1,96 @@
+/*
+  Francesco Peluso Portfolio Website - 2024
+  Created by Francesco Peluso
+
+  Light Theme:
+    - Coolors palette:  https://coolors.co/palette/006d77-83c5be-edf6f9
+    - Colors HEX:       #006D77, #83C5BE, #EDF6F9
+    - Text color:       #1A1A1A
+
+  Dark Theme:
+    - maybe coming soon :)
+*/
+
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 320px;
+    height: 380px;
+
+    background-color: #EDF6F9;
+    border: 1px solid rgba(0, 109, 119, .25);
+    box-shadow: #83C5BE -8px 8px 0px 0;
+    border-radius: 12px;
+    text-shadow: #83C5BE 0 0 2px 8px;
+
+    padding: 8px 16px;
+    margin: 0 12px;
+
+    transition: ease-in .175s;
+}
+
+.project-card:hover {
+    transform: translate(0, -2px) scale(1.01);
+    box-shadow: #83C5BE -8px 12px 0px 0;
+}
+
+.project-card-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+    height: 50%;
+    margin-bottom: 10px;
+}
+
+.project-card-header-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    width: 50%;
+    height: 160px;
+}
+
+.project-card-header-img img {
+    justify-self: center;
+    width: 100%;
+}
+
+.project-card-header h3 {
+    font-family: 'Platypi', sans-serif;
+    font-size: 24px;
+    color: #006D77;
+    margin-top: 8px;
+    text-align: center;
+}
+
+.project-card-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+.project-card-footer a {
+    font-size: 32px;
+}
+
+.project-description {
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.tech-stack {
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    color: #006D77;
+}

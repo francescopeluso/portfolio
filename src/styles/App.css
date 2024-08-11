@@ -1,0 +1,53 @@
+/*
+  Francesco Peluso Portfolio Website - 2024
+  Created by Francesco Peluso
+
+  Light Theme:
+    - Coolors palette:  https://coolors.co/palette/006d77-83c5be-edf6f9
+    - Colors HEX:       #006D77, #83C5BE, #EDF6F9
+    - Text color:       #1A1A1A
+
+  Dark Theme:
+    - maybe coming soon :)
+*/
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-size: 16px;
+  font-family: 'Platypi', sans-serif;
+
+  background-color: #EDF6F9;
+  color: #1A1A1A;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #006D77;
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+}
+
+a, a:visited {
+  color: #83C5BE;
+}
+
+a:hover {
+  color: #006D77;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: calc(100vw - 64px - 24px);
+  margin-left: calc(64px);
+}
+
+.container > div {
+  height: 100vh;
+  width: 80%;
+}
