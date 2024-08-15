@@ -1,5 +1,12 @@
 # My portfolio website
 
+### ☑️ To-Do
+- [ ] Make everything responsive (actually, it kinda sucks...)
+- [ ] Make a mobile version of the website
+- [ ] Optimize performances, SEO and content loading
+
+---
+
 👨🏻‍💻 Made with TypeScript and ReactJS. Hosted on Vercel. \
 ⚛️ This is just a "first approach" to using React.
 
