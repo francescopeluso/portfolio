@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #eeeeee;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+html {
+  color: var(--foreground);
+  background: var(--background);
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+
+  transition-property: opacity, background, transform, filter;
+  transition-timing-function: ease-in;
+  transition-duration: 300ms;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+
+/* self defined rules */
+
+.page-transition {
+  opacity: 0;
+  background: black;
+  transform: translateY(40px);
+  /* filter: blur(12px) */
+}
+
+.blink {
+  animation: blink 1s infinite;
+}
+
+.grecaptcha-badge {
+  display: none;
+}
+
+@keyframes blink {
+  0%, 100% {
+      opacity: 0;
+  }
+  50% {
+      opacity: 1;
+  }
+}
