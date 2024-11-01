@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import Script from 'next/script';
 import { GA_TRACKING_ID, pageview } from './lib/ga';
+import AnimatedBackground from "./components/AnimatedBackground";
 import "./globals.css";
 
 const geistSans = localFont({
@@ -50,7 +51,10 @@ export default function RootLayout({
             `,
           }}
         />
-        {children}
+        <AnimatedBackground className="pointer-events-none -z-10" />
+        <main className="relative z-10">
+          {children}
+        </main>
       </body>
     </html>
   );

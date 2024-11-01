@@ -30,37 +30,42 @@ export default function Home() {
                 </div>
             </main>
 
-            <nav className="flex flex-col md:flex-row gap-2 md:gap-8 text-center">
+            <nav className="flex flex-col md:flex-row gap-2 md:gap-4 text-center bg-black md:py-2 md:px-6 py-4 px-4 rounded-xl">
                 <TransitionLink
                     href="/about"
-                    className='hover:underline hover:underline-offset-4 font-black'
+                    className='hover:underline hover:underline-offset-4'
                 >About</TransitionLink>
+                <div className='md:block md:w-0.5 md:h-6 bg-gray-300 dark:bg-gray-700 w-full h-0.5'></div>
                 <TransitionLink
                     href="/projects"
-                    className='hover:underline hover:underline-offset-4 font-black'
+                    className='hover:underline hover:underline-offset-4'
                 >Projects</TransitionLink>
+                <div className='md:block md:w-0.5 md:h-6 bg-gray-300 dark:bg-gray-700 w-full h-0.5'></div>
                 <TransitionLink
                     href="/contacts"
-                    className='hover:underline hover:underline-offset-4 font-black'
+                    className='hover:underline hover:underline-offset-4'
                 >Contacts</TransitionLink>
             </nav>
 
-            <div className='flex gap-4 items-center flex-row'>
-                <Link 
-                    href="https://github.com/francescopeluso"
-                    className='flex items-center gap-2 hover:underline hover:underline-offset-4'
-                    target='_blank'
-                ><FaGithub size={24} /> <span>GitHub</span></Link>
-                <Link
-                    href="https://linkedin.com/in/francescopeluso04"
-                    className='flex items-center gap-2 hover:underline hover:underline-offset-4'
-                    target='_blank'
-                ><FaLinkedin size={24} /> <span>LinkedIn</span></Link>
-                <Link
-                    href="https://reddit.com/u/ThatsFrankie"
-                    className='flex items-center gap-2 hover:underline hover:underline-offset-4'
-                    target='_blank'
-                ><FaReddit size={24} /> <span>Reddit</span></Link>
+            <div className='flex gap-4 items-center flex-col md:flex-row'>
+                <p className='text-xs md:text-lg'>Follow me on:</p>
+                <div className='flex gap-4'>
+                    <Link 
+                        href="https://github.com/francescopeluso"
+                        className='flex items-center gap-2 hover:underline hover:underline-offset-4'
+                        target='_blank'
+                    ><FaGithub size={24} /> <span>GitHub</span></Link>
+                    <Link
+                        href="https://linkedin.com/in/francescopeluso04"
+                        className='flex items-center gap-2 hover:underline hover:underline-offset-4'
+                        target='_blank'
+                    ><FaLinkedin size={24} /> <span>LinkedIn</span></Link>
+                    <Link
+                        href="https://reddit.com/u/ThatsFrankie"
+                        className='flex items-center gap-2 hover:underline hover:underline-offset-4'
+                        target='_blank'
+                    ><FaReddit size={24} /> <span>Reddit</span></Link>
+                </div>
             </div>
 
         </div>

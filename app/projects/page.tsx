@@ -19,7 +19,7 @@ export default function Projects() {
                 className="flex items-center gap-2 hover:underline hover:underline-offset-4"
             >&larr; Go back</TransitionLink>
             
-            <div className="flex flex-col md:flex-row gap-4 w-full justify-between">
+            <div className="flex flex-col lg:flex-row gap-4 w-full justify-between">
                 <div>
                     <h2 className="text-3xl font-[family-name:var(--font-geist-mono)]">
                         <Typewriter text="projects I made or contributed to" /><BlinkingCursor />
