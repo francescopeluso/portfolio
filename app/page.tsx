@@ -30,7 +30,7 @@ export default function Home() {
                 </div>
             </main>
 
-            <nav className="flex flex-col md:flex-row gap-2 md:gap-4 text-center bg-black md:py-2 md:px-6 py-4 px-4 rounded-xl">
+            <nav className="flex flex-col md:flex-row gap-2 md:gap-4 text-center bg-white dark:bg-black md:py-2 md:px-6 py-4 px-4 rounded-xl shadow-xl">
                 <TransitionLink
                     href="/about"
                     className='hover:underline hover:underline-offset-4'
