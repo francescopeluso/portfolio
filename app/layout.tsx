@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import Script from 'next/script';
-import { GA_TRACKING_ID, pageview } from './lib/ga';
+import { GoogleTagManager } from '@next/third-parties/google'
+import { GA_TRACKING_ID } from './lib/ga';
 import AnimatedBackground from "./components/AnimatedBackground";
 import "./globals.css";
 
@@ -31,26 +31,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <GoogleTagManager gtmId={GA_TRACKING_ID ? GA_TRACKING_ID : ''} />
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Script
-          id="google-analytics"
-          strategy="afterInteractive"
-          src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
-        />
-        <Script
-          id="google-analytics-init"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', '${GA_TRACKING_ID}');
-            `,
-          }}
-        />
         <AnimatedBackground className="pointer-events-none -z-10" />
         <main className="relative z-10">
           {children}
