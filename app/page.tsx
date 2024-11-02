@@ -6,8 +6,7 @@ import { TransitionLink } from './components/TransitionLink';
 export default function Home() {
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen p-8 pb-20 gap-8 font-[family-name:var(--font-geist-sans)]">
-            
+        <div className="flex flex-col items-center justify-center min-h-screen p-8 pb-20 gap-8 font-[family-name:var(--font-geist-sans)] "> 
             <main>
                 <div className="shadow-xl bg-white dark:bg-black rounded-xl flex flex-row flex-col md:flex-row justify-center items-center p-5 gap-5">
                     <Image
@@ -30,17 +29,17 @@ export default function Home() {
                 </div>
             </main>
 
-            <nav className="flex flex-col md:flex-row gap-2 md:gap-4 text-center bg-white dark:bg-black md:py-2 md:px-6 py-4 px-4 rounded-xl shadow-xl">
+            <nav className="flex flex-row gap-4 text-center bg-white dark:bg-black md:py-2 md:px-6 py-4 px-4 rounded-xl shadow-xl">
                 <TransitionLink
                     href="/about"
                     className='hover:underline hover:underline-offset-4'
                 >About</TransitionLink>
-                <div className='md:block md:w-0.5 md:h-6 bg-gray-300 dark:bg-gray-700 w-full h-0.5'></div>
+                <div className='md:block w-0.5 h-6 bg-gray-300 dark:bg-gray-700'></div>
                 <TransitionLink
                     href="/projects"
                     className='hover:underline hover:underline-offset-4'
                 >Projects</TransitionLink>
-                <div className='md:block md:w-0.5 md:h-6 bg-gray-300 dark:bg-gray-700 w-full h-0.5'></div>
+                <div className='md:block w-0.5 h-6 bg-gray-300 dark:bg-gray-700'></div>
                 <TransitionLink
                     href="/contacts"
                     className='hover:underline hover:underline-offset-4'
@@ -67,7 +66,6 @@ export default function Home() {
                     ><FaReddit size={24} /> <span>Reddit</span></Link>
                 </div>
             </div>
-
         </div>
     )
 }

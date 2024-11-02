@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function About() {
     return (
-        <div className="bg-white dark:bg-black rounded-t-[36px] mx-auto w-[99%] bg-black flex flex-col items-start justify-center min-h-screen mt-4 p-8 pb-20 gap-8 font-[family-name:var(--font-geist-sans)]">
+        <div className="bg-white dark:bg-black rounded-t-[36px] mx-auto w-[99%] flex flex-col items-start justify-center min-h-screen mt-4 p-8 pb-20 gap-8 font-[family-name:var(--font-geist-sans)]">
             
             <TransitionLink
                 href="/"

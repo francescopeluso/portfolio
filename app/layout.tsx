@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import AnimatedBackground from './components/AnimatedBackground';
 import { GoogleTagManager } from '@next/third-parties/google'
 import { GA_TRACKING_ID } from './lib/ga';
-import AnimatedBackground from "./components/AnimatedBackground";
 import "./globals.css";
 
 const geistSans = localFont({
@@ -35,10 +35,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <AnimatedBackground className="pointer-events-none -z-10" />
-        <main className="relative z-10">
+
+        <AnimatedBackground className="pointer-events-none inset-0 -z-10" />
+        <div className="relative z-10">
           {children}
-        </main>
+        </div>
       </body>
     </html>
   );
