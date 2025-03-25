@@ -32,6 +32,14 @@ export default function Projects() {
 
             <div className="flex flex-col gap-4 w-full">
                 <ProjectCard
+                    name="BetterRoute @ SVST Hackathon Verbania 2025"
+                    description="Prototype made in less than 24 hours for the Silicon Valley Study Tour Hackathon 2025 in Verbania, Italy. Our project aims to help SMEs (small and medium-sized enterprises) to optimize their delivery routes, reducing costs and environmental impact."
+                    gitUrl=""
+                    demoUrl="https://betterroute-phi.vercel.app/"
+                    reportUrl="https://drive.google.com/file/d/1RpDgwJ6809lGasCJoe0Ip0FOhMx6oFpQ/view?usp=sharing"
+                    imageUrl="/imgs/svsthack2025.jpeg"
+                />
+                <ProjectCard
                     name="IOCommerce"
                     description="Project made with my high school 'Multiskills' team for the EU Codeweek Hackathon 2021 - an e-commerce platform for zero-km products. Built from scratch with HTML, JS, CSS as front-end technologies and PHP, MySQL as back-end technologies. The project won the first place in the Italian selection and the third place in the European selection."
                     gitUrl=""

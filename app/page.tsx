@@ -11,7 +11,7 @@ export default function Home() {
                 <div className="shadow-xl bg-white dark:bg-black rounded-xl flex flex-row flex-col md:flex-row justify-center items-center p-5 gap-5">
                     <Image
                         className="object-cover rounded-full"
-                        src="/imgs/propic.jpg"
+                        src="https://avatars.githubusercontent.com/u/59664699?v=4"
                         alt="My profile picture"
                         width={256}
                         height={256}

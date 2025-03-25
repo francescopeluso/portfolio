@@ -53,7 +53,7 @@ export default function About() {
                     description="I am currently attending the third year of the Bachelor's Degree in Computer Engineering ('Software' track) at the University of Salerno. The course of study includes a wide range of subjects, from mathematics to electronics, from computer science to telecommunications."
                 />
                 <ExperienceCard
-                    title="Back-end Developer"
+                    title="Full-stack Developer"
                     location="Considera SRL"
                     startDate="2022"
                     imageSrc="/imgs/considera.png"
