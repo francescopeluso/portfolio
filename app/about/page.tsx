@@ -26,7 +26,7 @@ export default function About() {
                 Applied Mathematics (DIEM) of the University of Salerno, where I deepen my theoretical and practical knowledge.
             </p>
             <p>
-                In parallel with my studies, I work as a back end developer, specializing in the creation of efficient and 
+                In parallel with my studies, I work as a full stack developer, specializing in the creation of efficient and 
                 innovative solutions. I am a supporter of the open source philosophy and I believe, above all, in the
                 importance of well-designed software, easy to use and accessible to everyone.
             </p>
@@ -57,7 +57,7 @@ export default function About() {
                     location="Considera SRL"
                     startDate="2022"
                     imageSrc="/imgs/considera.png"
-                    description="I am part-time back-end developer here at Considera, where I work on the development of web applications and services."
+                    description="I am part-time full stack developer here at Considera, where I work on the development of web applications and services."
                 />
             </div>
 

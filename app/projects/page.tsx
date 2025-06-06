@@ -32,6 +32,14 @@ export default function Projects() {
 
             <div className="flex flex-col gap-4 w-full">
                 <ProjectCard
+                    name="Readit"
+                    description="Team project for Mobile Programming course - a multi-platform mobile application to manage a personal library of books, with features such as book search, reading progress tracking, and book recommendations. Built with React Native, Expo, SQLite."
+                    gitUrl="https://github.com/francescopeluso/MobProg-Project"
+                    reportUrl="https://github.com/francescopeluso/MobProg-Project/blob/main/_docs/RELAZIONE%20GRUPPO%2010.pdf"
+                    demoUrl="https://github.com/francescopeluso/MobProg-Project/blob/main/_docs/PRESENTAZIONE%20GRUPPO%2010.pdf"
+                    imageUrl="/imgs/mobprog.jpg"
+                />
+                <ProjectCard
                     name="BetterRoute @ SVST Hackathon Verbania 2025"
                     description="Prototype made in less than 24 hours for the Silicon Valley Study Tour Hackathon 2025 in Verbania, Italy. Our project aims to help SMEs (small and medium-sized enterprises) to optimize their delivery routes, reducing costs and environmental impact."
                     gitUrl=""
