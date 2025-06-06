@@ -24,7 +24,7 @@ export default function Home() {
                                 Francesco Peluso
                             </span>
                         </p>
-                        <p className="text-center text-xs md:text-xl mt-5 font-bold text-center md:text-start text-gray-500 dark:text-gray-300">Computer Engineering student &<br /> Fu developer</p>
+                        <p className="text-center text-xs md:text-xl mt-5 font-bold text-center md:text-start text-gray-500 dark:text-gray-300">Computer Engineering student &<br /> Full stack developer</p>
                     </div>
                 </div>
             </main>
