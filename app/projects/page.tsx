@@ -12,22 +12,27 @@ export const metadata: Metadata = {
 
 export default function Projects() {
     return (
-        <div className="bg-white dark:bg-black rounded-t-[36px] mx-auto w-[99%] flex flex-col items-start justify-center min-h-screen mt-4 p-8 pb-20 gap-8 font-[family-name:var(--font-geist-sans)]">
-            
+        <div className="bg-white/80 dark:bg-black/80 backdrop-blur-xl rounded-t-3xl mx-auto w-[99%] flex flex-col items-start justify-center min-h-screen mt-4 p-6 md:p-8 pb-16 gap-6 font-[family-name:var(--font-geist-sans)] border-t border-x border-gray-200/50 dark:border-gray-800/50 shadow-2xl">
+
             <TransitionLink
                 href="/"
-                className="flex items-center gap-2 hover:underline hover:underline-offset-4"
+                className="flex items-center gap-2 font-semibold tracking-tight hover:underline hover:underline-offset-4 transition-all duration-300 hover:gap-3"
             >&larr; Go back</TransitionLink>
-            
-            <div className="flex flex-col lg:flex-row gap-4 w-full justify-between">
-                <div>
-                    <h2 className="text-3xl font-[family-name:var(--font-geist-mono)]">
+
+            <div className="flex flex-col lg:flex-row gap-6 w-full justify-between items-start">
+                <div className="flex flex-col gap-3">
+                    <h2 className="text-2xl md:text-3xl font-bold tracking-tight font-[family-name:var(--font-geist-mono)]">
                         <Typewriter text="projects I made or contributed to" /><BlinkingCursor />
                     </h2>
-                    <div className="mt-4">Visit my <Link className="font-bold underline" href="https://github.com/francescopeluso">GitHub profile</Link> to see all the projects I have worked on.<br /><em>Note that the contribution graph shows private repo contributions as well.</em></div>
+                    <div className="text-sm md:text-base text-gray-700 dark:text-gray-300">
+                        Visit my <Link className="font-bold underline hover:text-[#4a90e2] transition-colors" href="https://github.com/francescopeluso">GitHub profile</Link> to see all the projects I have worked on.<br />
+                        <em className="text-xs md:text-sm">Note that the contribution graph shows private repo contributions as well.</em>
+                    </div>
                 </div>
-                
-                <GitHubCalendar username="francescopeluso" />    
+
+                <div className="lg:ml-auto">
+                    <GitHubCalendar username="francescopeluso" />
+                </div>
             </div>
 
             <div className="flex flex-col gap-4 w-full">

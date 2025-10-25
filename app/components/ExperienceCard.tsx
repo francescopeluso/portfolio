@@ -14,28 +14,28 @@ interface ExperienceCardProps {
 
 const ExperienceCard: React.FC<ExperienceCardProps> = ({
     title,
-    location, 
-    startDate, 
-    endDate, 
-    imageSrc, 
-    description 
+    location,
+    startDate,
+    endDate,
+    imageSrc,
+    description
 }: ExperienceCardProps) => {
     return (
-        <div className="flex-shrink-0 bg-[var(--background)] rounded-xl md:w-[720px] md:h-[240px] flex flex-col md:flex-row items-center justify-center md:justify-start gap-4">
-            <div 
-                className="w-full md:w-2/8 bg-black h-full rounded-t-xl md:rounded-tr-[0] md:rounded-bl-xl flex items-center justify-center p-2"
+        <div className="group bg-white/60 dark:bg-black/60 backdrop-blur-sm border border-gray-200/50 dark:border-gray-800/50 rounded-2xl w-full flex flex-col shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] overflow-hidden">
+            <div
+                className="w-full h-32 bg-black flex items-center justify-center p-4"
                 style={{
                     backgroundImage: `url(/imgs/placeholder.jpg)`,
                     backgroundSize: 'cover',
                 }}
             >
-                <Image src={imageSrc} alt={location} width={192} height={192} />
+                <Image src={imageSrc} alt={location} width={96} height={96} />
             </div>
-            <div className="w-full md:w-6/8 p-4 pt-0 md:pt-4">
-                <h3 className="text-lg font-bold">{title}</h3>
-                <p className="text-sm text-gray-500">{location}</p>
-                <p className="text-sm text-gray-500">{startDate} - {endDate ?? 'present'}</p>
-                <p className="text-sm mt-4">{description}</p>
+            <div className="p-6 flex flex-col gap-2 flex-grow">
+                <h3 className="text-lg font-bold tracking-tight">{title}</h3>
+                <p className="text-sm text-gray-600 dark:text-gray-400 font-medium">{location}</p>
+                <p className="text-xs text-gray-500 dark:text-gray-500 font-[family-name:var(--font-geist-mono)]">{startDate} - {endDate ?? 'present'}</p>
+                <p className="text-sm mt-2 text-gray-700 dark:text-gray-300 leading-relaxed">{description}</p>
             </div>
         </div>
     );

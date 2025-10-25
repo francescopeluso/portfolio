@@ -74,17 +74,17 @@ const ContactForm = () => {
     };
 
     return (
-        <form className="flex flex-col gap-4 mt-6" onSubmit={handleSubmit}>
-            <label htmlFor="name" className="text-sm font-bold">Your name</label>
-            <Input type="text" id="name" name="name" className="p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gray-400 focus:outline-none bg-gray-100" onChange={handleChange} />
-            <label htmlFor="email" className="text-sm font-bold">Your email address</label>
-            <Input type="email" id="email" name="email" className="p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gray-400 focus:outline-none bg-gray-100" onChange={handleChange} />
-            <label htmlFor="message" className="text-sm font-bold mt-4">Write a message...</label>
-            <TextArea id="message" name="message" className="p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-gray-400 focus:outline-none bg-gray-100" onChange={handleChange} />
-            <button type="submit" className="bg-black dark:bg-white text-white dark:text-black font-bold p-2 rounded-md hover:bg-gray-700 dark:hover:200">Send message</button>
+        <form className="flex flex-col gap-4 mt-4" onSubmit={handleSubmit}>
+            <label htmlFor="name" className="text-sm font-bold tracking-tight">Your name</label>
+            <Input type="text" id="name" name="name" className="p-3 border border-gray-300/50 dark:border-gray-700/50 rounded-lg focus:ring-2 focus:ring-[#4a90e2]/50 focus:border-[#4a90e2] focus:outline-none bg-white/50 dark:bg-black/50 backdrop-blur-sm transition-all duration-300" onChange={handleChange} />
+            <label htmlFor="email" className="text-sm font-bold tracking-tight">Your email address</label>
+            <Input type="email" id="email" name="email" className="p-3 border border-gray-300/50 dark:border-gray-700/50 rounded-lg focus:ring-2 focus:ring-[#4a90e2]/50 focus:border-[#4a90e2] focus:outline-none bg-white/50 dark:bg-black/50 backdrop-blur-sm transition-all duration-300" onChange={handleChange} />
+            <label htmlFor="message" className="text-sm font-bold tracking-tight mt-2">Write a message...</label>
+            <TextArea id="message" name="message" className="p-3 border border-gray-300/50 dark:border-gray-700/50 rounded-lg focus:ring-2 focus:ring-[#4a90e2]/50 focus:border-[#4a90e2] focus:outline-none bg-white/50 dark:bg-black/50 backdrop-blur-sm transition-all duration-300 min-h-[120px]" onChange={handleChange} />
+            <button type="submit" className="bg-gradient-to-r from-[#4a90e2] to-[#9013fe] text-white font-bold tracking-tight py-3 px-4 rounded-lg hover:shadow-lg hover:scale-[1.02] transition-all duration-300">Send message</button>
             {
-                status && 
-                <p className="rounded-md p-2 text-dark bg-black dark:bg-white dark:text-black text-white">
+                status &&
+                <p className="rounded-lg p-3 text-sm bg-white/80 dark:bg-black/80 backdrop-blur-sm border border-gray-200/50 dark:border-gray-800/50 shadow-md">
                     {status}
                 </p>
             }
