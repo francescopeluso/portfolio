@@ -19,11 +19,20 @@ const ContactForm = () => {
 
     useEffect(() => {
         const loadRecaptchaScript = () => {
+            if (!SITE_KEY) {
+                console.error('reCAPTCHA site key is not configured');
+                return;
+            }
+
             if (!window.grecaptcha) {
                 const script = document.createElement('script');
                 script.src = `https://www.google.com/recaptcha/api.js?render=${SITE_KEY}`;
                 script.async = true;
                 script.onload = () => setIsRecaptchaReady(true);
+                script.onerror = () => {
+                    console.error('Failed to load reCAPTCHA script');
+                    setStatus('Failed to load reCAPTCHA. Please refresh the page.');
+                };
                 document.body.appendChild(script);
             } else {
                 setIsRecaptchaReady(true);
@@ -39,7 +48,25 @@ const ContactForm = () => {
 
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
-        
+
+        // Validate form fields
+        if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+            setStatus('Please fill in all fields before submitting.');
+            return;
+        }
+
+        // Basic email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(formData.email)) {
+            setStatus('Please enter a valid email address.');
+            return;
+        }
+
+        if (!SITE_KEY) {
+            setStatus('reCAPTCHA is not configured. Ehm... this is embarrassing. Sorry.');
+            return;
+        }
+
         if (!isRecaptchaReady) {
             setStatus('reCAPTCHA is still loading. Please try again.');
             return;
@@ -76,11 +103,11 @@ const ContactForm = () => {
     return (
         <form className="flex flex-col gap-4 mt-4" onSubmit={handleSubmit}>
             <label htmlFor="name" className="text-sm font-bold tracking-tight">Your name</label>
-            <Input type="text" id="name" name="name" className="p-3 border border-gray-300/50 dark:border-gray-700/50 rounded-lg focus:ring-2 focus:ring-[#4a90e2]/50 focus:border-[#4a90e2] focus:outline-none bg-white/50 dark:bg-black/50 backdrop-blur-sm transition-all duration-300" onChange={handleChange} />
+            <Input type="text" id="name" name="name" value={formData.name} className="p-3 border border-gray-300/50 dark:border-gray-700/50 rounded-lg focus:ring-2 focus:ring-[#4a90e2]/50 focus:border-[#4a90e2] focus:outline-none bg-white/50 dark:bg-black/50 backdrop-blur-sm transition-all duration-300" onChange={handleChange} />
             <label htmlFor="email" className="text-sm font-bold tracking-tight">Your email address</label>
-            <Input type="email" id="email" name="email" className="p-3 border border-gray-300/50 dark:border-gray-700/50 rounded-lg focus:ring-2 focus:ring-[#4a90e2]/50 focus:border-[#4a90e2] focus:outline-none bg-white/50 dark:bg-black/50 backdrop-blur-sm transition-all duration-300" onChange={handleChange} />
+            <Input type="email" id="email" name="email" value={formData.email} className="p-3 border border-gray-300/50 dark:border-gray-700/50 rounded-lg focus:ring-2 focus:ring-[#4a90e2]/50 focus:border-[#4a90e2] focus:outline-none bg-white/50 dark:bg-black/50 backdrop-blur-sm transition-all duration-300" onChange={handleChange} />
             <label htmlFor="message" className="text-sm font-bold tracking-tight mt-2">Write a message...</label>
-            <TextArea id="message" name="message" className="p-3 border border-gray-300/50 dark:border-gray-700/50 rounded-lg focus:ring-2 focus:ring-[#4a90e2]/50 focus:border-[#4a90e2] focus:outline-none bg-white/50 dark:bg-black/50 backdrop-blur-sm transition-all duration-300 min-h-[120px]" onChange={handleChange} />
+            <TextArea id="message" name="message" value={formData.message} className="p-3 border border-gray-300/50 dark:border-gray-700/50 rounded-lg focus:ring-2 focus:ring-[#4a90e2]/50 focus:border-[#4a90e2] focus:outline-none bg-white/50 dark:bg-black/50 backdrop-blur-sm transition-all duration-300 min-h-[120px]" onChange={handleChange} />
             <button type="submit" className="bg-gradient-to-r from-[#4a90e2] to-[#9013fe] text-white font-bold tracking-tight py-3 px-4 rounded-lg hover:shadow-lg hover:scale-[1.02] transition-all duration-300">Send message</button>
             {
                 status &&

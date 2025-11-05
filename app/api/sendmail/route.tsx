@@ -13,6 +13,39 @@ const SECRET_KEY = process.env.RECAPTCHA_SECRET_KEY;
 export async function POST(request: NextRequest) {
     const { name, email, message, recaptchaToken }: EmailData = await request.json();
 
+    // Validate required fields
+    if (!name || !name.trim()) {
+        return NextResponse.json({
+            message: 'Name is required.',
+        }, { status: 400 });
+    }
+
+    if (!email || !email.trim()) {
+        return NextResponse.json({
+            message: 'Email is required.',
+        }, { status: 400 });
+    }
+
+    // Basic email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        return NextResponse.json({
+            message: 'Please provide a valid email address.',
+        }, { status: 400 });
+    }
+
+    if (!message || !message.trim()) {
+        return NextResponse.json({
+            message: 'Message is required.',
+        }, { status: 400 });
+    }
+
+    if (!recaptchaToken) {
+        return NextResponse.json({
+            message: 'reCAPTCHA token is missing.',
+        }, { status: 400 });
+    }
+
     // Verifica il token reCAPTCHA
     const recaptchaVerificationResponse = await fetch(`https://www.google.com/recaptcha/api/siteverify`, {
         method: 'POST',
