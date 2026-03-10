@@ -1,15 +1,13 @@
-// from shadcn/ui website
-
 import React from "react"
- 
+
 export interface TextareaProps
   extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {}
- 
+
 const TextArea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
   ({ className, ...props }, ref) => {
     return (
       <textarea
-        className="flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+        className="w-full min-h-[120px] bg-black border border-white text-white px-3 py-2 text-sm font-mono focus:outline-none placeholder:text-white/50"
         ref={ref}
         {...props}
       />
@@ -17,5 +15,5 @@ const TextArea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
   }
 )
 TextArea.displayName = "Textarea"
- 
+
 export default TextArea

@@ -1,15 +1,10 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import AnimatedBackground from './components/AnimatedBackground';
 import { GoogleTagManager } from '@next/third-parties/google'
 import { GA_TRACKING_ID } from './lib/ga';
+import BlockCursor from './components/BlockCursor';
 import "./globals.css";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
 const geistMono = localFont({
   src: "./fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
@@ -19,9 +14,9 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title: {
     template: "%s | Francesco Peluso",
-    default : "Francesco Peluso's Portfolio",
+    default: "Francesco Peluso",
   },
-  description: "Hello there. This is my portfolio website, you may find it interesting (maybe).",
+  description: "Francesco Peluso's portfolio.",
 };
 
 export default function RootLayout({
@@ -32,14 +27,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <GoogleTagManager gtmId={GA_TRACKING_ID ? GA_TRACKING_ID : ''} />
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-
-        <AnimatedBackground className="pointer-events-none inset-0 -z-10" />
-        <div className="relative z-10">
-          {children}
-        </div>
+      <body className={`${geistMono.variable} font-mono`}>
+        <BlockCursor />
+        <main className="min-h-screen flex items-center justify-center p-3 md:p-6">
+          <div className="w-full max-w-5xl border border-white p-5 md:p-12">
+            {children}
+          </div>
+        </main>
       </body>
     </html>
   );

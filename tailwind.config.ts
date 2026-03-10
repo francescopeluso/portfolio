@@ -8,15 +8,6 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      keyframes: {
-        "wave": {
-          "0%, 60%, 100%": { transform: "initial" },
-          "30%": { transform: "translateY(-25%)" },
-        },
-      },
-      animation: {
-        "wave": "wave 1.5s infinite",
-      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",

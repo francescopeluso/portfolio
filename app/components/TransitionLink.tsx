@@ -20,7 +20,7 @@ export const TransitionLink = ({
     className,
     ...props
 }: TransitionLinkProps) => {
-    
+
     const router = useRouter();
 
     const handleTransmission = async (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
@@ -28,11 +28,10 @@ export const TransitionLink = ({
 
         const body = document.querySelector('body');
         body?.classList.add("page-transition");
-        await sleep(320);
+        await sleep(250);
         router.push(href);
-        await sleep(320);
+        await sleep(250);
         body?.classList.remove("page-transition");
-
     }
 
     return (
