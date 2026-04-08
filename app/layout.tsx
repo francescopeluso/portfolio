@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { GoogleTagManager } from '@next/third-parties/google'
+import { Analytics } from "@vercel/analytics/next"
 import { GA_TRACKING_ID } from './lib/ga';
 import BlockCursor from './components/BlockCursor';
 import StarField from './components/StarField';
@@ -29,6 +30,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <GoogleTagManager gtmId={GA_TRACKING_ID ? GA_TRACKING_ID : ''} />
+      <Analytics />
+
       <body className={`${geistMono.variable} font-mono`}>
         <BlockCursor />
         <StarField />
