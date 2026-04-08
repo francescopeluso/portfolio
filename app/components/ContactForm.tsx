@@ -102,7 +102,7 @@ const ContactForm = () => {
             <TextArea id="message" name="message" value={formData.message} onChange={handleChange} />
             <button
                 type="submit"
-                className="border border-white px-4 py-2 text-sm font-bold hover:bg-white hover:text-black transition-all duration-150"
+                className="border border-white px-4 py-2 text-sm font-bold hover:bg-white hover:text-black"
             >
                 send
             </button>

@@ -27,10 +27,10 @@ export default function BlogPost({ params }: Props) {
   const post = getPostBySlug(params.slug);
 
   return (
-    <div className="flex flex-col gap-8 animate-fade-in">
+    <div className="flex flex-col gap-8 tui-enter">
       <TransitionLink
         href="/blog"
-        className="border border-white px-3 py-1 text-sm self-start hover:bg-white hover:text-black transition-all duration-150"
+        className="border border-white px-3 py-1 text-sm self-start hover:bg-white hover:text-black"
       >
         &larr; cd ..
       </TransitionLink>

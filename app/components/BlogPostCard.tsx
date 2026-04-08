@@ -12,7 +12,7 @@ export default function BlogPostCard({ slug, title, date, description }: BlogPos
     <div className="border border-white p-5 flex flex-col gap-2">
       <TransitionLink
         href={`/blog/${slug}`}
-        className="text-base font-bold hover:bg-white hover:text-black transition-all duration-150 px-1 -mx-1"
+        className="text-base font-bold hover:bg-white hover:text-black px-1 -mx-1"
       >
         {title}
       </TransitionLink>

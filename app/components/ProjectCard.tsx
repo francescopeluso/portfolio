@@ -16,13 +16,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ name, description, gitUrl, de
             <p className="text-sm leading-relaxed">{description}</p>
             <div className="flex flex-wrap gap-3 mt-1">
                 {gitUrl && (
-                    <Link href={gitUrl} target="_blank" className="border border-white px-2 py-0.5 text-xs hover:bg-white hover:text-black transition-all duration-150">[github]</Link>
+                    <Link href={gitUrl} target="_blank" className="border border-white px-2 py-0.5 text-xs hover:bg-white hover:text-black">[github]</Link>
                 )}
                 {demoUrl && (
-                    <Link href={demoUrl} target="_blank" className="border border-white px-2 py-0.5 text-xs hover:bg-white hover:text-black transition-all duration-150">[demo]</Link>
+                    <Link href={demoUrl} target="_blank" className="border border-white px-2 py-0.5 text-xs hover:bg-white hover:text-black">[demo]</Link>
                 )}
                 {reportUrl && (
-                    <Link href={reportUrl} target="_blank" className="border border-white px-2 py-0.5 text-xs hover:bg-white hover:text-black transition-all duration-150">[report]</Link>
+                    <Link href={reportUrl} target="_blank" className="border border-white px-2 py-0.5 text-xs hover:bg-white hover:text-black">[report]</Link>
                 )}
             </div>
         </div>

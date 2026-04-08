@@ -13,10 +13,10 @@ export default function Blog() {
   const posts = getAllPosts();
 
   return (
-    <div className="flex flex-col gap-8 animate-fade-in">
+    <div className="flex flex-col gap-8 tui-enter">
       <TransitionLink
         href="/"
-        className="border border-white px-3 py-1 text-sm self-start hover:bg-white hover:text-black transition-all duration-150"
+        className="border border-white px-3 py-1 text-sm self-start hover:bg-white hover:text-black"
       >
         &larr; cd ..
       </TransitionLink>

@@ -28,7 +28,22 @@ body {
   color: #ffffff;
   background-color: #000000;
   font-family: var(--font-geist-mono), ui-monospace, monospace;
-  transition: opacity 200ms ease;
+  animation: flicker 12s steps(1) infinite;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.06) 2px,
+    rgba(0, 0, 0, 0.06) 3px
+  );
+  pointer-events: none;
+  z-index: 9998;
 }
 
 ::selection {
@@ -48,21 +63,52 @@ body {
   background: #ffffff;
 }
 
-.page-transition {
-  opacity: 0;
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+@keyframes scan-reveal {
+  from { clip-path: inset(0 0 100% 0); }
+  to   { clip-path: inset(0 0 0% 0); }
+}
+
+@keyframes flicker {
+  0%, 95%, 100% { opacity: 1; }
+  96%           { opacity: 0.97; }
+  97%           { opacity: 1; }
+  98%           { opacity: 0.975; }
+  99%           { opacity: 1; }
+}
+
+@keyframes screen-flash {
+  0%, 100% { filter: invert(0); }
+  50%       { filter: invert(1); }
+}
+
+@keyframes star-twinkle {
+  0%, 100% { opacity: var(--base-opacity, 0.1); }
+  50%       { opacity: 0; }
 }
 
 .blink {
   animation: blink 1s step-end infinite;
 }
 
+.tui-enter {
+  animation: scan-reveal 0.22s steps(22) forwards;
+}
+
+.screen-flash {
+  animation: screen-flash 0.1s steps(3) forwards;
+}
+
 .grecaptcha-badge {
   display: none;
 }
 
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+@media (prefers-reduced-motion: reduce) {
+  .tui-enter, .blink, body { animation: none; }
 }
 
 .prose h1, .prose h2, .prose h3 { font-weight: bold; margin-top: 1.5rem; }
@@ -84,22 +130,3 @@ body {
 .prose th, .prose td { border: 1px solid #fff; padding: 0.5rem; text-align: left; }
 .prose img { max-width: 100%; }
 .prose hr { border: none; border-top: 1px solid #fff; margin: 2rem 0; }
-
-@keyframes fade-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-.animate-fade-in {
-  animation: fade-in 0.4s ease forwards;
-}
-
-.animate-fade-in-delay {
-  animation: fade-in 0.4s ease 0.1s forwards;
-  opacity: 0;
-}
-
-.animate-fade-in-delay-2 {
-  animation: fade-in 0.4s ease 0.2s forwards;
-  opacity: 0;
-}

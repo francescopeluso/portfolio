@@ -10,38 +10,27 @@ interface TransitionLinkProps extends LinkProps {
     className?: string;
 }
 
-function sleep(ms: number) {
-    return new Promise((resolve) => setTimeout(resolve, ms));
-}
-
 export const TransitionLink = ({
     children,
     href,
     className,
     ...props
 }: TransitionLinkProps) => {
-
     const router = useRouter();
 
-    const handleTransmission = async (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    const handleTransmission = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
         e.preventDefault();
-
         const body = document.querySelector('body');
-        body?.classList.add("page-transition");
-        await sleep(250);
-        router.push(href);
-        await sleep(250);
-        body?.classList.remove("page-transition");
-    }
+        body?.classList.add("screen-flash");
+        setTimeout(() => {
+            router.push(href);
+            body?.classList.remove("screen-flash");
+        }, 100);
+    };
 
     return (
-        <Link
-            onClick={handleTransmission}
-            href={href}
-            className={className}
-            {...props}
-        >
+        <Link onClick={handleTransmission} href={href} className={className} {...props}>
             {children}
         </Link>
     );
-}
+};
