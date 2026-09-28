@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <style>
+    .sparkle { fill: #232322; }
+    @media (prefers-color-scheme: dark) { .sparkle { fill: #eeece3; } }
+  </style>
+  <path class="sparkle" d="M32 2C35 20 41 27 62 32C41 37 35 44 32 62C29 44 23 37 2 32C23 27 29 20 32 2Z"/>
+</svg>

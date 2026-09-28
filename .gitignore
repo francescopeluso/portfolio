@@ -1,0 +1,24 @@
+# Local agent instructions and planning notes
+AGENTS.md
+CLAUDE.md
+SPECS.md
+
+# Dependencies and generated output
+node_modules/
+.next/
+out/
+dist/
+
+# Local environment and tooling
+.env
+.env.*
+!.env.example
+.DS_Store
+*.tsbuildinfo
+.next/
+
+# Letterboxd export — only ratings.csv is published
+content/letterboxd/*
+!content/letterboxd/ratings.csv
+!content/letterboxd/.gitkeep
+.next/
