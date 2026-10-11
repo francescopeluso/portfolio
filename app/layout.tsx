@@ -1,11 +1,15 @@
 import type { Metadata } from "next";
+import { DM_Mono, Doto, Instrument_Serif } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/next";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 import { siteConfig, siteUrl } from "./lib/site";
-import "katex/dist/katex.min.css";
 import "./globals.css";
+
+const mono = DM_Mono({ subsets: ["latin"], weight: ["400", "500"], variable: "--font-mono" });
+const serif = Instrument_Serif({ subsets: ["latin"], weight: "400", style: ["normal", "italic"], variable: "--font-serif" });
+const doto = Doto({ subsets: ["latin"], weight: "700", variable: "--font-doto" });
 
 export const metadata: Metadata = {
   metadataBase: siteUrl,
@@ -55,7 +59,6 @@ export const metadata: Metadata = {
 };
 
 const themeScript = `(() => { const s = localStorage.getItem('theme'); document.documentElement.dataset.theme = s || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); })()`;
-const recaptchaKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
 const gaId = process.env.NEXT_PUBLIC_GA_TRACKING_ID;
 const personJsonLd = {
   "@context": "https://schema.org",
@@ -74,14 +77,13 @@ const personJsonLd = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className={`${mono.variable} ${serif.variable} ${doto.variable}`} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd).replace(/</g, "\\u003c") }}
         />
-        {recaptchaKey && <script src={`https://www.google.com/recaptcha/api.js?render=${recaptchaKey}`} async defer />}
       </head>
       <body>
         <a className="skip-link" href="#main-content">Skip to content</a>

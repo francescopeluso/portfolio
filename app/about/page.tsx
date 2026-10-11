@@ -14,7 +14,7 @@ export default function AboutPage() {
   return <PageLayout eyebrow="~/about" title="about">
     <div className="about-hero">
       <figure className="about-portrait">
-        <Image className="halftone" src="/propic.jpeg" alt="Francesco Peluso" width={1254} height={1254} priority />
+        <Image className="halftone" src="/propic.webp" alt="Francesco Peluso" width={900} height={900} sizes="(max-width: 900px) 100vw, 40vw" priority />
       </figure>
       <div className="about-body">
         <p>I&apos;m Francesco, a computer engineer with four years of experience building web applications, APIs, and embedded software. I&apos;m now pursuing an M.Sc. in Computer Engineering, focused on artificial intelligence and its applications.</p>

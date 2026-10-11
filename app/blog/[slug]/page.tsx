@@ -1,3 +1,4 @@
+import "katex/dist/katex.min.css";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
@@ -31,6 +32,12 @@ export default async function BlogPost({ params }: Props) {
   if (!post) notFound();
   return <PageLayout eyebrow={`${post.date} · blog`} title={post.title} description={post.description}>
     <p className="post-back"><Link className="text-link" href="/blog">← Back to writing</Link></p>
-    <article className="post-body" dangerouslySetInnerHTML={{ __html: post.html }} />
+    <div className="post-layout">
+      <article className="post-body" dangerouslySetInnerHTML={{ __html: post.html }} />
+      {post.toc.length > 1 && <nav className="post-toc" aria-label="Table of contents">
+        <p className="eyebrow">on this page</p>
+        <ol>{post.toc.map((item) => <li key={item.id}><a href={`#${item.id}`}>{item.text}</a></li>)}</ol>
+      </nav>}
+    </div>
   </PageLayout>;
 }

@@ -1,6 +1,9 @@
 "use client";
 
+import Script from "next/script";
 import { FormEvent, useState } from "react";
+
+const recaptchaKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
 
 type Status = { kind: "success" | "error"; text: string } | null;
 
@@ -31,7 +34,9 @@ export function ContactForm() {
     finally { setSending(false); }
   }
 
-  return <form className="contact-form" onSubmit={submit}>
+  return <>
+  {recaptchaKey && <Script src={`https://www.google.com/recaptcha/api.js?render=${recaptchaKey}`} strategy="lazyOnload" />}
+  <form className="contact-form" onSubmit={submit}>
     <div className="honeypot" aria-hidden="true"><label htmlFor="website">Website</label><input id="website" name="website" tabIndex={-1} autoComplete="off" /></div>
     <label htmlFor="name">name<input id="name" name="name" required maxLength={100} autoComplete="name" /></label>
     <label htmlFor="email">email<input id="email" name="email" type="email" required maxLength={254} autoComplete="email" /></label>
@@ -39,7 +44,8 @@ export function ContactForm() {
     <button type="submit" disabled={sending}>{sending ? "sending…" : "send message ↗"}</button>
     {status && <p className={`form-status ${status.kind}`} role="status">{status.text}</p>}
     <p className="recaptcha-disclosure">This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy">Privacy Policy</a> and <a href="https://policies.google.com/terms">Terms of Service</a> apply.</p>
-  </form>;
+  </form>
+  </>;
 }
 
 type Grecaptcha = { execute: (siteKey: string, options: { action: string }) => Promise<string> };

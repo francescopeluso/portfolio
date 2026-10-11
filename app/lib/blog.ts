@@ -41,8 +41,29 @@ export interface PostMeta {
   description: string;
 }
 
+export interface TocItem {
+  id: string;
+  text: string;
+}
+
 export interface Post extends PostMeta {
   html: string;
+  toc: TocItem[];
+}
+
+function addHeadingIds(html: string): { html: string; toc: TocItem[] } {
+  const toc: TocItem[] = [];
+  const used = new Set<string>();
+  const out = html.replace(/<h2>([\s\S]*?)<\/h2>/g, (_, inner: string) => {
+    const text = inner.replace(/<[^>]+>/g, "").replace(/&#39;/g, "'").replace(/&quot;/g, "\"").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&amp;/g, "&").trim();
+    const base = text.toLowerCase().replace(/'/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") || "section";
+    let id = base;
+    for (let i = 2; used.has(id); i++) id = `${base}-${i}`;
+    used.add(id);
+    toc.push({ id, text });
+    return `<h2 id="${id}">${inner}</h2>`;
+  });
+  return { html: out, toc };
 }
 
 export function getAllPosts(): PostMeta[] {
@@ -70,6 +91,6 @@ export function getPostBySlug(slug: string): Post | null {
     title: data.title ?? slug,
     date: data.date ?? "",
     description: data.description ?? "",
-    html: marked.parse(content, { async: false }),
+    ...addHeadingIds(marked.parse(content, { async: false })),
   };
 }
